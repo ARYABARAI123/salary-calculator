@@ -1,0 +1,24 @@
+public class SpecialEmployee extends Employee
+{
+@Override
+public void salaryCalculation()
+{
+double bw = ((getGrosswage() / getTotalWorkingDays())
+* getPaidDays()) * 0.45;
+setBasicWage(bw);
+double hra = (bw * 0.40);
+setHra(hra);
+double ca = (1600 / getTotalWorkingDays()) * getPaidD
+ays();
+setConveyanceAllowances(ca);
+double ma = (1250 / getTotalWorkingDays()) * getPaidD
+ays();
+setMedicalAllowances(ma);
+double otherAllo = ((getGrosswage() / getTotalWorking
+Days()) * getPaidDays()) - (bw + hra + ca + ma);
+setTotalEarning(bw + hra + ca + ma + otherAllo);
+double esi = getTotalEarning() * 0.0075;
+setTotalEarning(getTotalEarning() + esi);
+System.out.println("Total Earnings: " + getTotalEarni
+ng() );
+}
